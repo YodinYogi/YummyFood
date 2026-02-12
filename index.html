@@ -4,86 +4,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YummyFood – Nepali Food Truck</title>
-    <!-- Linking external CSS file -->
-    <link rel="stylesheet" href="./styles.css">
+    <title>YummyFood – Authentic Nepali Street Food</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- Header / Navbar -->
-    <header class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">YummyFood</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <h1>Authentic Nepali Street Food</h1>
-        <p>Experience the taste of the Himalayas right here in your city. Fresh, spicy, and unforgettable.</p>
-        <button class="cta-button">View Menu</button>
+    <section id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>YummyFood</h1>
+                <p>Authentic Nepali Street Food</p>
+                <a href="#menu" class="cta-btn">View Menu</a>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>Started in 2024, YummyFood brings traditional Nepali recipes with a modern twist. Our food truck serves
-            happiness on wheels.</p>
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-desc">
+                Welcome to YummyFood! We bring the vibrant and spicy flavors of Kathmandu streets directly to you.
+                Our journey started with a passion for Momos and Sekuwa, and now we are sharing that love on wheels.
+                Fresh ingredients, authentic spices, and a whole lot of heart go into every dish we serve.
+            </p>
+        </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <h2>Our Menu</h2>
-        <div class="menu-cards-container">
-            <!-- Food cards will be added here later -->
+    <section id="menu" class="section menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <p class="section-subtitle">Swipe to explore flavors</p>
+
+            <div class="menu-carousel-wrapper">
+                <button class="scroll-btn left" id="scrollLeft">&#10094;</button>
+
+                <!-- NEW VIEWPORT WRAPPER -->
+                <div class="carousel-viewport">
+                    <div class="menu-container" id="menuContainer">
+                        <div class="menu-card">
+                            <img src="./Images/momo.png" alt="Steamed Momo" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Steamed Momo</h3>
+                                <p>Juicy chicken dumplings with special spices.</p>
+                                <span class="price">$10.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/" alt="Chicken Sekuwa" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Chicken Sekuwa</h3>
+                                <p>Charcoal grilled marinated chicken skewers.</p>
+                                <span class="price">$12.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card active">
+                            <img src="./Images/chowmein.png" alt="Veg Chowmein" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Veg Chowmein</h3>
+                                <p>Stir-fried noodles with fresh veggies.</p>
+                                <span class="price">$8.50</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/thukpa.png" alt="Thukpa" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Thukpa</h3>
+                                <p>Hot noodle soup mixed with meat and veggies.</p>
+                                <span class="price">$9.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/selroti.png" alt="Sel Roti" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Sel Roti</h3>
+                                <p>Traditional sweet rice donuts.</p>
+                                <span class="price">$5.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/chatpate.png" alt="Chatpate" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Chatpate</h3>
+                                <p>Spicy puffed rice salad street mix.</p>
+                                <span class="price">$4.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/laphing.png" alt="Laphing" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Laphing</h3>
+                                <p>Cold spicy noodle dish with soy sauce.</p>
+                                <span class="price">$6.00</span>
+                            </div>
+                        </div>
+
+                        <div class="menu-card">
+                            <img src="./Images/lassi.png" alt="Mango Lassi" class="menu-img">
+                            <div class="menu-info">
+                                <h3>Mango Lassi</h3>
+                                <p>Sweet and refreshing yogurt drink.</p>
+                                <span class="price">$4.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="scroll-btn right" id="scrollRight">&#10095;</button>
+            </div>
+
+            <!-- NEW DOTS -->
+            <div class="carousel-dots"></div>
+
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="reviews-section">
-        <h2>Customer Reviews</h2>
-        <p>"Best dumplings in town!" - A happy customer.</p>
+    <section id="reviews" class="section reviews">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-wrapper">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Absolutely delicious! The momos remind me of home."</p>
+                    <h4>- Aarav S.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Great spicy food. Loved the chatpate!"</p>
+                    <h4>- Sarah J.</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Quick service and amazing hygiene. Highly recommended."</p>
+                    <h4>- John D.</h4>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2>Contact / Bulk Orders</h2>
-        <form action="#" method="post" class="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone"><br><br>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea><br><br>
-
-            <button type="submit">Submit</button>
-        </form>
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contact / Bulk Orders</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Phone Number">
+                </div>
+                <textarea placeholder="Your Message or Order Details" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 YummyFood</p>
-        <div class="social-links">
-            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 YummyFood. All rights reserved.</p>
+            <div class="socials">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Linking external JS file -->
-    <script src="script.js"></script>
-
+    <script src="./script.js"></script>
 </body>
 
 </html>
