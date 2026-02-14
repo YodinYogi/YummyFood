@@ -25,16 +25,18 @@ let allCards;
 
 // Clone first & last for infinite illusion
 function setupCarousel() {
-    const firstClone = cards[0].cloneNode(true);
-    const lastClone = cards[cards.length - 1].cloneNode(true);
 
-    container.appendChild(firstClone);
-    container.insertBefore(lastClone, container.firstChild);
+    allCards = cards;
 
-    allCards = document.querySelectorAll(".menu-card");
-    cardWidth = allCards[0].offsetWidth;
 
-    container.style.transform = `translateX(-${cardWidth * index}px)`;
+
+    const style = getComputedStyle(allCards[0]);
+    const margin = parseInt(style.marginLeft) + parseInt(style.marginRight);
+    cardWidth = allCards[0].offsetWidth + margin;
+    const viewport = document.querySelector(".carousel-viewport");
+    viewport.style.width = `${cardWidth * 3}px`;
+
+    container.style.transform = `translateX(-${cardWidth * (index + 1)}px)`;
 
     createDots();
     updateCarousel(false);
@@ -52,6 +54,10 @@ function updateCarousel(animate = true) {
 
 function next() {
     if (isAnimating) return;
+
+    // stop at last possible slide
+    if (index >= allCards.length - 3) return;
+
     isAnimating = true;
     index++;
     updateCarousel(true);
@@ -59,6 +65,10 @@ function next() {
 
 function prev() {
     if (isAnimating) return;
+
+    // stop at first slide
+    if (index <= 0) return;
+
     isAnimating = true;
     index--;
     updateCarousel(true);
@@ -66,14 +76,6 @@ function prev() {
 
 // Reset when hitting clones
 container.addEventListener("transitionend", () => {
-    if (index === allCards.length - 1) {
-        index = 1;
-        updateCarousel(false);
-    }
-    if (index === 0) {
-        index = allCards.length - 2;
-        updateCarousel(false);
-    }
     isAnimating = false;
 });
 
@@ -89,9 +91,12 @@ function updateActiveCards() {
         card.classList.remove("center", "side");
     });
 
-    const centerCard = allCards[index];
-    const leftCard = allCards[index - 1];
-    const rightCard = allCards[index + 1];
+    // Because 3 cards are visible, the center is index + 1
+    const centerIndex = index + 1;
+
+    const centerCard = allCards[centerIndex];
+    const leftCard = allCards[centerIndex - 1];
+    const rightCard = allCards[centerIndex + 1];
 
     if (centerCard) centerCard.classList.add("center");
     if (leftCard) leftCard.classList.add("side");
@@ -108,7 +113,7 @@ function createDots() {
         const dot = document.createElement("div");
         dot.classList.add("dot");
         dot.addEventListener("click", () => {
-            index = i + 1;
+            index = i + 2;
             updateCarousel(true);
         });
         dotsContainer.appendChild(dot);
@@ -118,7 +123,7 @@ function createDots() {
 function updateDots() {
     const dots = document.querySelectorAll(".dot");
     dots.forEach(dot => dot.classList.remove("active"));
-    dots[index - 1]?.classList.add("active");
+    dots[index - 2]?.classList.add("active");
 }
 
 

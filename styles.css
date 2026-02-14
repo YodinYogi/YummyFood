@@ -197,11 +197,11 @@ img {
 
 .carousel-viewport {
     overflow: hidden;
-    width: 100%;
-    max-width: 900px;
+    width: calc(300px * 3 + 30px * 3);
+    /* 3 cards + margins */
+    max-width: 100%;
     margin: auto;
-    position: relative;
-    user-select: none;
+    scroll-snap-type: x mandatory;
 }
 
 
@@ -215,8 +215,9 @@ img {
 
 .menu-container {
     display: flex;
+    gap: 0;
+    scroll-behavior: smooth;
 }
-
 
 .menu-container::-webkit-scrollbar {
     display: none;
@@ -226,6 +227,7 @@ img {
     flex: 0 0 300px;
     /* fixed width = secret sauce */
     margin: 0 15px;
+    scroll-snap-align: center;
     /* spacing between cards */
     background: white;
     border-radius: 20px;
@@ -240,8 +242,9 @@ img {
 
 
 .menu-card.center {
-    transform: scale(1.05);
-    z-index: 5;
+    transform: scale(1.15);
+    z-index: 10;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 
 .menu-card.side {
@@ -250,11 +253,11 @@ img {
 }
 
 /* Active class for middle card (JS will toggle this for scaling) */
-.menu-card.active-card {
+/* .menu-card.active-card {
     transform: scale(1.1);
     z-index: 10;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .menu-img {
     height: 200px;
